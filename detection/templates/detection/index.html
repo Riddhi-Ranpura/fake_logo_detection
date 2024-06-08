@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Logo Detection</title>
+    <style>
+        body {
+            background-image: url("{% static 'bg_img2.jpeg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        button {
+            border: 2px solid black;
+            color: black;
+            padding: 16px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        img {
+            height: 100px;
+            width: 200px;
+            margin-top: 100px;
+        }
+        label {
+            font-size: 40px;
+            margin-top: 200px;
+            font-family: fantasy;
+        }
+        .main {
+            margin-top: 100px;
+        }
+    </style>
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+</head>
+<body>
+    <center>
+        <img src="{% static 'img2.jpg' %}" alt="Logo">
+        <br>
+        <label>FAKE LOGO DETECTION SYSTEM</label>
+        <br>
+        <div class="main">
+            <h1 style="color: black;">Upload a Logo</h1>
+            <form action="/predict/" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Upload and Predict</button>
+            </form>
+        </div>
+    </center>
+</body>
+</html>

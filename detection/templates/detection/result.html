@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Logo Detection - Result</title>
+    <style>
+        body {
+            background-image: url("{% static 'bg_img2.jpeg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        a {
+            border: 2px solid black;
+            color: black;
+            padding: 16px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        img {
+            height: 100px;
+            width: 200px;
+            margin-top: 100px;
+        }
+        label {
+            font-size: 40px;
+            margin-top: 200px;
+            font-family: fantasy;
+        }
+        .main {
+            margin-top: 100px;
+        }
+        p {
+            font-family: sans-serif;
+        }
+    </style>
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+</head>
+<body>
+    <center>
+        <img src="{% static 'img2.jpg' %}" alt="Logo"> 
+        <br>
+        <label>FAKE LOGO DETECTION SYSTEM</label>
+        <br>
+        <div class="main">
+            <h1>Prediction Result</h1>
+            <p>The logo is: <strong>{{ result }}</strong></p>
+            <img src="{{ file_url }}" alt="Uploaded Logo">
+            <br>
+            <a href="/">Upload another logo</a>
+        </div>
+    </center>
+</body>
+</html>
